@@ -6,7 +6,6 @@ import TransactionService from "../../services/transaction.service";
 import { formatNumberWithCommas } from "../../utils/string.utils";
 import { ServerErrorConstants } from "../../constants/server-error-constants";
 import WalletService from "../../services/wallet.service";
-import { DataErrorObjectResponse } from "../../types/response.types";
 
 interface WalletBalanceProps {}
 
