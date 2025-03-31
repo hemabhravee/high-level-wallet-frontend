@@ -70,7 +70,7 @@ const Transactions: FunctionComponent = () => {
   }, []);
 
   // Handle table change (pagination, filters, sorter)
-  const handleTableChange = (pagination: TablePaginationConfig, sorter: any) => {
+  const handleTableChange = (pagination: TablePaginationConfig, filters: any, sorter: any) => {
     setPagination({
       current: pagination.current || 1,
       pageSize: pagination.pageSize || 10
