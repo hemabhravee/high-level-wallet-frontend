@@ -1,5 +1,5 @@
-import { Button, Input, Form, message, Modal } from "antd";
-import { FunctionComponent, useEffect, useState } from "react";
+import { Button, Input, Form, Modal } from "antd";
+import { FunctionComponent, useState } from "react";
 import WalletService from "../../services/wallet.service";
 import { appStore } from "../../stores/app-store";
 import { Wallet } from "../../types/wallet.types";

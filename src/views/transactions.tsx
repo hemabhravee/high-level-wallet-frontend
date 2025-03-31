@@ -1,6 +1,6 @@
-import { Table, Tag, Typography, Input, Form, Button, message, Tooltip } from "antd";
+import { Table, Tag, Typography, Input, Form, Button, message } from "antd";
 import { useState, useEffect, FunctionComponent } from "react";
-import { ColumnsType } from "antd/es/table";
+import { ColumnsType, TablePaginationConfig } from "antd/es/table";
 import { Transaction } from "../types/transaction.types";
 import ReadableDate from "../components/common/readable-date";
 import TransactionService from "../services/transaction.service";
@@ -9,6 +9,7 @@ import { DownloadOutlined } from '@ant-design/icons';
 import { formatNumberWithCommas } from "../utils/string.utils";
 import { observer } from "mobx-react-lite";
 import TooltipWrapper from "../components/common/tooltip-wrapper";
+import { FilterValue, SorterResult } from "antd/es/table/interface";
 
 
 const Transactions: FunctionComponent = () => {
@@ -70,8 +71,12 @@ const Transactions: FunctionComponent = () => {
   }, []);
 
   // Handle table change (pagination, filters, sorter)
-  const handleTableChange = (pagination: any, filters: any, sorter: any) => {
-    setPagination(pagination);
+  const handleTableChange = (pagination: TablePaginationConfig, filters: Record<string, FilterValue | null>, sorter: SorterResult<Transaction>) => {
+
+    setPagination({
+      current: pagination.current || 1,
+      pageSize: pagination.pageSize || 10
+    });
 
     if (sorter && sorter.field) {
       console.log("sorter :: ", sorter);
