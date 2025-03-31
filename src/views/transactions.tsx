@@ -9,7 +9,6 @@ import { DownloadOutlined } from '@ant-design/icons';
 import { formatNumberWithCommas } from "../utils/string.utils";
 import { observer } from "mobx-react-lite";
 import TooltipWrapper from "../components/common/tooltip-wrapper";
-import { FilterValue, SorterResult } from "antd/es/table/interface";
 
 
 const Transactions: FunctionComponent = () => {
@@ -71,8 +70,7 @@ const Transactions: FunctionComponent = () => {
   }, []);
 
   // Handle table change (pagination, filters, sorter)
-  const handleTableChange = (pagination: TablePaginationConfig, filters: Record<string, FilterValue | null>, sorter: any) => {
-
+  const handleTableChange = (pagination: TablePaginationConfig, sorter: any) => {
     setPagination({
       current: pagination.current || 1,
       pageSize: pagination.pageSize || 10
